@@ -60,3 +60,34 @@ while True:
     else:
         print("Not a valid choice")
         continue
+
+    # ---------- Stage 4: Remember many expenses (lists) ----------
+# Lesson: One expense is no use. A list holds many. .append() adds to it, and a
+#         for loop walks through it. len() tells you how many you have.
+# Task:   1) Make an empty list `expenses = []` before the loop.
+#         2) When the user adds an expense, append the amount to the list.
+#         3) Add a menu option "View all" that loops over the list and prints
+#            each amount, plus the running total (add them up in a loop).
+# 💾 COMMIT:  "Stage 4: store and total expenses"
+
+expenses = []
+
+while True:
+    print("1) Add an expense  2) View all  3) Quit")
+    choice = input("Choose an option: \n")
+    if choice == "1":
+        amount = float(input("How much did it cost? \n"))
+        expenses.append(amount)
+        print(f"Logged: £{amount:.2f}")
+    elif choice == "2":
+        total = 0
+        print("Expenses:")
+        for expense in expenses:
+            print(f"£{expense:.2f}")
+            total += expense
+        print(f"Total: £{total:.2f}")
+    elif choice == "3":
+        print("Goodbye!")
+        break
+    else:
+        print("Not a valid choice")
